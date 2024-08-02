@@ -8,8 +8,10 @@ async function getInstance() {
  * @param {String} options.video - The video URL
  * @param {String} options.type - The video MIME type
  * @param {String} options.original_link - The original link of the video
+ *
  * @param {Boolean} [options.redirect=false] - If the video should be redirected
  * @param {Boolean} [options.local_redirect=false] - If the video should be redirected locally
+ *
  * @param {Object} options.proxy - The proxy options
  * @param {Boolean} [options.proxy.enabled=false] - If the proxy should be enabled
  * @param {String} [options.proxy.cookies] - The cookies to be used in the proxy
