@@ -3,5 +3,13 @@ let url = document.body.innerHTML.match(regex);
 
 if (url) {
   url = `https://video.sibnet.ru${url[1]}`;
-  redirect(url, window.location.href, true, false);
+  redirect({
+    video: url,
+    type: "video/mp4",
+    original_link: window.location.href,
+    redirect: true,
+    proxy: {
+      enabled: false,
+    },
+  });
 }

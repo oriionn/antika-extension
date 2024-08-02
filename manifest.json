@@ -4,7 +4,7 @@
   "description": "Antika is a simple extension for replace video uploader's player to a simple and cool player.",
   "manifest_version": 2,
   "author": "Orion",
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "storage"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -12,7 +12,8 @@
         "utils/redirect.js",
         "utils/base64.js",
         "utils/waitForElement.js",
-        "utils/fetch.js"
+        "utils/fetch.js",
+        "utils/browser.js"
       ],
       "all_frames": true
     },
@@ -30,6 +31,21 @@
       "matches": ["*://streamtape.com/e/*"],
       "js": ["sources/streamtape.js"],
       "all_frames": true
+    },
+    {
+      "matches": ["*://*/e/*"],
+      "js": ["sources/voe.js"],
+      "all_frames": true
+    },
+    {
+      "matches": ["*://my.mail.ru/video/embed/*"],
+      "js": ["sources/mailru.js"],
+      "all_frames": true
     }
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "antika@oriondev.fr"
+    }
+  }
 }
