@@ -5,6 +5,19 @@ const serverEl = document.getElementById("server");
 const message = document.getElementById("status");
 let timeoutMessage;
 
+function showMessage(msg, type) {
+  clearTimeout(timeoutMessage);
+  message.classList.remove("error");
+  message.classList.remove("success");
+
+  message.innerHTML = msg;
+  message.classList.add(type);
+  timeoutMessage = setTimeout(() => {
+    message.innerHTML = "";
+    message.classList.remove(type);
+  }, 2000);
+}
+
 const sources = [
   {
     name: "my.mail.ru",
@@ -34,7 +47,8 @@ nav.storage.sync.get().then((result) => {
     checkboxes.innerHTML += `<label><input type="checkbox" id="${source.id}" name="${source.id}" ${disabled.includes(source.id) ? "" : "checked"}> ${source.name}</label>`;
   });
 
-  let server = result.server || "https://antika-watch.oriondev.fr";
+  let server = result.server || "https://antika-watch.oriondev.fr/";
+
   serverEl.value = server;
 });
 
@@ -46,31 +60,21 @@ save.addEventListener("click", () => {
     }
   });
   let server = serverEl.value;
+  let regex =
+    /^https?:\/\/((localhost|(\d{1,3}\.){3}\d{1,3})|(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}))(:\d{1,5})?(\/.*)?$/;
+  if (!regex.test(server)) {
+    showMessage("Invalid server URL", "error");
+    return;
+  }
+
+  if (!server.endsWith("/")) server += "/";
 
   nav.storage.sync
     .set({ disabled, server })
     .then(() => {
-      clearTimeout(timeoutMessage);
-      message.classList.remove("error");
-      message.classList.remove("success");
-
-      message.innerHTML = "Options saved!";
-      message.classList.add("success");
-      timeoutMessage = setTimeout(() => {
-        message.innerHTML = "";
-        message.classList.remove("success");
-      }, 2000);
+      showMessage("Options saved", "success");
     })
     .catch(() => {
-      clearTimeout(timeoutMessage);
-      message.classList.remove("error");
-      message.classList.remove("success");
-
-      message.innerHTML = "Error occured when saving options";
-      message.classList.add("error");
-      timeoutMessage = setTimeout(() => {
-        message.innerHTML = "";
-        message.classList.remove("error");
-      }, 2000);
+      showMessage("Error occured when saving options", "error");
     });
 });
