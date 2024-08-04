@@ -1,0 +1,57 @@
+{
+  "name": "Antika",
+  "version": "1.0.0",
+  "description": "Antika is a simple extension for replace video uploader's player to a simple and cool player.",
+  "manifest_version": 3,
+  "author": "Orion",
+  "icons": {
+    "24": "icons/24px.png",
+    "48": "icons/48px.png",
+    "64": "icons/64px.png",
+    "128": "icons/128px.png"
+  },
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_icon": "icons/64px.png",
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "utils/redirect.js",
+        "utils/base64.js",
+        "utils/waitForElement.js",
+        "utils/fetch.js",
+        "utils/browser.js",
+        "utils/init.js"
+      ],
+      "all_frames": true
+    },
+    {
+      "matches": ["*://sendvid.com/embed/*"],
+      "js": ["sources/sendvid.js"],
+      "all_frames": true
+    },
+    {
+      "matches": ["*://*.sibnet.ru/*"],
+      "js": ["sources/sibnet.js"],
+      "all_frames": true
+    },
+    {
+      "matches": ["*://streamtape.com/e/*"],
+      "js": ["sources/streamtape.js"],
+      "all_frames": true
+    },
+    {
+      "matches": ["*://*/e/*"],
+      "js": ["sources/voe.js"],
+      "all_frames": true
+    },
+    {
+      "matches": ["*://my.mail.ru/video/embed/*"],
+      "js": ["sources/mailru.js"],
+      "all_frames": true
+    }
+  ]
+}

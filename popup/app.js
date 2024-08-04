@@ -1,4 +1,4 @@
-const nav = browser ? browser : chrome;
+const nav = typeof browser !== "undefined" ? browser : chrome;
 const checkboxes = document.getElementById("checkboxes");
 const save = document.getElementById("submit");
 const serverEl = document.getElementById("server");

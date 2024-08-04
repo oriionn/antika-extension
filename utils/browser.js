@@ -1,1 +1,1 @@
-const nav = browser ? browser : chrome;
+const nav = typeof browser !== "undefined" ? browser : chrome;
