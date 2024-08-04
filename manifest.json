@@ -4,7 +4,17 @@
   "description": "Antika is a simple extension for replace video uploader's player to a simple and cool player.",
   "manifest_version": 2,
   "author": "Orion",
+  "icons": {
+    "24": "icons/24px.png",
+    "48": "icons/48px.png",
+    "64": "icons/64px.png",
+    "128": "icons/128px.png"
+  },
   "permissions": ["activeTab", "storage"],
+  "browser_action": {
+    "default_icon": "icons/64px.png",
+    "default_popup": "popup/popup.html"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -13,7 +23,8 @@
         "utils/base64.js",
         "utils/waitForElement.js",
         "utils/fetch.js",
-        "utils/browser.js"
+        "utils/browser.js",
+        "utils/init.js"
       ],
       "all_frames": true
     },
