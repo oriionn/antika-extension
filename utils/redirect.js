@@ -1,5 +1,6 @@
 async function getInstance() {
-  return `http://localhost:3000/`;
+  let result = await nav.storage.sync.get();
+  return result.instance || "https://antika-watch.oriondev.fr";
 }
 
 /**
