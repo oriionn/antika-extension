@@ -4,7 +4,7 @@ A simple extension to replace video reader with a custom one for multiple source
 ## Compatibility
 | Browser | Tested |
 |---------|---------|
-| Chrome  | ❌   |
+| Chrome  | ✅   |
 | Firefox | ✅   |
 | Edge    | ✅   |
 | Safari  | ❌   |
