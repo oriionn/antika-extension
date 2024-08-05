@@ -1,5 +1,6 @@
 # Antika
 A simple extension to replace video reader with a custom one for multiple sources.
+If you want to selfhost the player, you can selfhost this [server](https://github.com/oriionn/antika-server).
 
 ## Compatibility
 | Browser | Tested |
