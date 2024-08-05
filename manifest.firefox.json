@@ -10,7 +10,7 @@
     "64": "icons/64px.png",
     "128": "icons/128px.png"
   },
-  "permissions": ["activeTab", "storage"],
+  "permissions": ["storage"],
   "browser_action": {
     "default_icon": "icons/64px.png",
     "default_popup": "popup/popup.html"
