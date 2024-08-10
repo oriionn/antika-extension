@@ -20,7 +20,7 @@ If you want to selfhost the player, you can selfhost this [server](https://githu
 - [ ] vidmoly.to
 
 ## Installation
-1. Install the extension from [Chrome Web Store](https://google.com/?q=Not%20available) or [Firefox Add-ons](https://google.com/?q=Not%20available).
+1. Install the extension from [Chrome Web Store](https://chromewebstore.google.com/detail/antika/djhfcoifbjbiknjmkalchamcipmeaghb) or [Firefox Add-ons](https://addons.mozilla.org/fr/firefox/addon/antika/).
 2. Open the extension settings and if you want to disable a source, uncheck the box next to it.
 3. Enjoy!
 
